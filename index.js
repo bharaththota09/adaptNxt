@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const API_KEY = 'a27491f2e9f5c72c72a22ab299b11064';
 
+const PORT=process.env.PORT || 3000
+
 app.get('/weather', async (req, res) => {
     
     const city = req.query.city;
@@ -31,4 +33,6 @@ app.get('/weather', async (req, res) => {
 
 //http://localhost:3000/weather?city=hyderabad
 
-app.listen(3000);
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
